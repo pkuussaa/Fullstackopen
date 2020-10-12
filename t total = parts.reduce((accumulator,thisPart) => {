@@ -1,0 +1,30 @@
+[33mcommit a5e6b61ed816d7bb345efc40b4e7637629db12ad[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Merge: 57a9038 9ef7181
+Author: Pyry Kuussaari <pyry@kuussaari.fi>
+Date:   Tue Oct 13 01:19:48 2020 +0300
+
+    Merge branch 'master' of https://github.com/pkuussaa/Fullstackopen
+
+[33mcommit 57a90384b479cadd59f2534f3ed58cd1f69788a1[m
+Author: Pyry Kuussaari <pyry@kuussaari.fi>
+Date:   Tue Oct 13 01:17:45 2020 +0300
+
+    part2
+
+[33mcommit 9ef71814e54f03a6cfbb5910bfe9598ed369f50b[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Pyry Kuussaari <pyry@kuussaari.fi>
+Date:   Mon Oct 12 17:32:35 2020 +0300
+
+    deleted unnecessary files
+
+[33mcommit 3c7ca821648224c41a1f9ddd9e623939c1c4abf1[m
+Author: Pyry Kuussaari <pyry@kuussaari.fi>
+Date:   Mon Oct 12 17:25:22 2020 +0300
+
+    part1 folder added
+
+[33mcommit 21509f2b23c0c1a80de6d2c6321eeb4b3e33b068[m
+Author: Pyry Kuussaari <pyry@kuussaari.fi>
+Date:   Mon Oct 12 17:23:07 2020 +0300
+
+    ex12-14 return
