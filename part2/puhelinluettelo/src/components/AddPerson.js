@@ -1,4 +1,5 @@
 import React from "react";
+import contactService from '../services/Contacts';
 
 const AddPerson = (props) =>  {
 
@@ -18,13 +19,42 @@ const AddPerson = (props) =>  {
 		name: props.newName,
 		number: props.newNumber
 	  }
+	  if (props.persons.map(person =>
+		person.name.toLowerCase()).includes(props.newName.toLowerCase())) {
 	  for (let i  = 0;i < props.persons.length; i++) {
-		if (props.persons[i].name === nameObject.name) {
-		  alert(`${nameObject.name} is already added to phonebook`)
-		  return
+		if (props.persons[i].name.toLowerCase() === nameObject.name.toLowerCase()) {
+		  if  (window.confirm(`${nameObject.name} is already added to phonebook, replace the old number with a new one?`)) {
+			const newContact = {...props.persons[i], name: props.newName, number: props.newNumber}
+			console.log(newContact)
+			contactService.update(newContact.id, newContact)
+			.then((contact) => {
+				console.log(contact)
+				props.setPersons(props.persons.map(con => con.name.toLowerCase() === contact.name.toLowerCase() ? contact : con))
+			}).catch(error => {
+				props.setErrorMessage(`Contact ${nameObject.name} was already removed from the sever`)
+				setTimeout(() => {
+					props.setErrorMessage(null)
+				}, 5000)
+			})
+			props.setErrorMessage(`Changed contact ${nameObject.name}`)
+			setTimeout(() => {
+				props.setErrorMessage(null)
+			}, 5000)
+		  }
 		}
 	  }
-	  props.setPersons(props.persons.concat(nameObject))
+	}
+	else {
+	  contactService.create(nameObject).then(newObject => {
+		  props.setPersons(props.persons.concat(newObject))
+		  props.setNewName('')
+		  props.setNewNumber('')
+	  })
+	  props.setErrorMessage(`Added contact ${nameObject.name}`)
+	  setTimeout(() => {
+		  props.setErrorMessage(null)
+	  }, 5000)
+	}
 	}
 	return (
 	<div>
